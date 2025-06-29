@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 
 const AuthScreen = () => {
 	const [email, setEmail] = useState("");
+	const navigate = useNavigate();
 
+	const handleFormSubmit = (e) => {
+		e.preventDefault();
+		navigate("/signup?email=" + email);
+	};
 
 	return (
 		<div className='hero-bg relative'>
@@ -25,7 +30,7 @@ const AuthScreen = () => {
 				<p className='text-lg mb-4'>Watch anywhere. Cancel anytime.</p>
 				<p className='mb-4'>Ready to watch? Enter your email to create or restart your membership.</p>
 
-				<form className='flex flex-col md:flex-row gap-4 w-1/2'>
+				<form className='flex flex-col md:flex-row gap-4 w-1/2' onSubmit={handleFormSubmit}>
 					<input
 						type='email'
 						placeholder='Email address'
@@ -48,7 +53,7 @@ const AuthScreen = () => {
 			<div className='py-10 bg-black text-white'>
 				<div className='flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2'>
 					
-                    {/* left side */}
+					{/* left side */}
 					<div className='flex-1 text-center md:text-left'>
 						<h2 className='text-4xl md:text-5xl font-extrabold mb-4'>Enjoy on your TV</h2>
 						<p className='text-lg md:text-xl'>
@@ -56,7 +61,7 @@ const AuthScreen = () => {
 						</p>
 					</div>
 					
-                    {/* right side */}
+					{/* right side */}
 					<div className='flex-1 relative'>
 						<img src='/tv.png' alt='Tv image' className='mt-4 z-20 relative' />
 						<video
@@ -80,7 +85,7 @@ const AuthScreen = () => {
 			<div className='py-10 bg-black text-white'>
 				<div className='flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col-reverse px-4 md:px-2'>
 					
-                    {/* left side */}
+					{/* left side */}
 					<div className='flex-1 relative'>
 						<div className='relative'>
 							<img src='/stranger-things-lg.jpg' alt='Stranger Things img' className='mt-4' />
@@ -103,7 +108,7 @@ const AuthScreen = () => {
 						</div>
 					</div>
 					
-                    {/* right side */}
+					{/* right side */}
 					<div className='flex-1 md:text-left text-center'>
 						<h2 className='text-4xl md:text-5xl font-extrabold mb-4 text-balance'>
 							Download your shows to watch offline
@@ -123,7 +128,7 @@ const AuthScreen = () => {
 			<div className='py-10 bg-black text-white'>
 				<div className='flex max-w-6xl mx-auto items-center justify-center md:flex-row flex-col px-4 md:px-2'>
 					
-                    {/* left side */}
+					{/* left side */}
 					<div className='flex-1 text-center md:text-left'>
 						<h2 className='text-4xl md:text-5xl font-extrabold mb-4'>Watch everywhere</h2>
 						<p className='text-lg md:text-xl'>
@@ -160,12 +165,12 @@ const AuthScreen = () => {
         '
 				>
 					
-                    {/* left */}
+					{/* left */}
 					<div className='flex-1 relative'>
 						<img src='/kids.png' alt='Enjoy on your TV' className='mt-4' />
 					</div>
 					
-                    {/* right */}
+					{/* right */}
 					<div className='flex-1 text-center md:text-left'>
 						<h2 className='text-4xl md:text-5xl font-extrabold mb-4'>Create profiles for kids</h2>
 						<p className='text-lg md:text-xl'>
