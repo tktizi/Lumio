@@ -1,4 +1,3 @@
-
 const WatchPageSkeleton = () => {
 	return (
 		<div className='animate-pulse'>
